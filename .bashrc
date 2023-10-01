@@ -10,5 +10,8 @@ alias ll='ls -alhF'
 alias grep='grep --color=auto'
 alias vim='nvim'
 
-PS1="\w\n> "
+BLUE="\[\e[0;34m\]"
+RESET="\[\e[0m\]"
+
+PS1="$BLUEλ \W $ $RESET"
 
