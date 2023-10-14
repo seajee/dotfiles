@@ -17,9 +17,11 @@ return require("packer").startup(function(use)
     use "ellisonleao/gruvbox.nvim"
 
     use {
-        "akinsho/toggleterm.nvim", tag = "*",
-        config = function()
-            require("toggleterm").setup()
-        end
+        "akinsho/toggleterm.nvim", tag = "*"
+    }
+
+    use {
+        "nvim-lualine/lualine.nvim",
+        requires = { "nvim-tree/nvim-web-devicons", opt = true }
     }
 end)
