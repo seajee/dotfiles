@@ -1,9 +1,5 @@
 vim.opt.guicursor = ""
 
-vim.cmd.colorscheme("gruvbox")
-
-vim.cmd("highlight Normal ctermbg=NONE guibg=NONE");
-
 vim.opt.nu = true
 vim.opt.relativenumber = true
 
