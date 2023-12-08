@@ -1,7 +1,7 @@
 -- Leader key
 vim.g.mapleader = " "
 
--- NERDTree
+-- Netrw
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
 -- Terminal mode
