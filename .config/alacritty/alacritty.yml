@@ -1,6 +1,10 @@
 import:
   - ~/.config/alacritty/themes/themes/afterglow.yaml
 
+colors:
+  primary:
+    background: '0x181818'
+
 font:
   normal:
     family: Iosevka
@@ -18,4 +22,4 @@ font:
     family: Iosevka
     style: Bold Italic
 
-  size: 14
+  size: 13
