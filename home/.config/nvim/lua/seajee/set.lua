@@ -33,7 +33,7 @@ vim.opt.termguicolors = true
 vim.opt.signcolumn = "yes"
 
 vim.opt.updatetime = 50
-vim.opt.colorcolumn = "80"
+vim.opt.colorcolumn = "79" -- RFC 5322
 
 -- Netrw
 vim.g.netrw_browse_split = 0
