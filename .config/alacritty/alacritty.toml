@@ -1,0 +1,10 @@
+[window]
+startup_mode = "Maximized"
+
+[font]
+normal.family = "Iosevka Fixed"
+bold.family = "Iosevka Fixed"
+italic.family = "Iosevka Fixed"
+bold_italic.family = "Iosevka Fixed"
+
+size = 14.0
