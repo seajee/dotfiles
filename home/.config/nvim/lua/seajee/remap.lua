@@ -42,6 +42,9 @@ vim.keymap.set("n", "<leader>dm", ":delmarks!<CR>")
 -- Make executable
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
+-- Change CWD
+vim.keymap.set("n", "<leader>cd", "<cmd>cd % | pwd<CR>", { silent = true })
+
 -- Manuals
 vim.keymap.set("n", "<leader>m", "<cmd>:Man<CR>")
 
