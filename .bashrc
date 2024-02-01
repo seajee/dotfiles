@@ -13,5 +13,7 @@ alias vim='nvim'
 BLUE="\[\e[0;34m\]"
 RESET="\[\e[0m\]"
 
+PATH=~/.local/bin:$PATH
+
 PS1="$BLUEλ \W $ $RESET"
 
