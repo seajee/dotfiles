@@ -37,7 +37,7 @@ vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><
 vim.keymap.set("n", "<leader>vs", [[:vimgrep // **/*<Left><Left><Left><Left><Left><Left>]])
 
 -- Delete all marks
-vim.keymap.set("n", "<leader>dm", ":delmarks!<CR>")
+vim.keymap.set("n", "<leader>dm", "<cmd>delmarks!<CR>")
 
 -- Make executable
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
@@ -46,12 +46,12 @@ vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 vim.keymap.set("n", "<leader>cd", "<cmd>cd % | pwd<CR>", { silent = true })
 
 -- Manuals
-vim.keymap.set("n", "<leader>m", "<cmd>:Man<CR>")
+vim.keymap.set("n", "<leader>m", "<cmd>Man<CR>")
 
 -- Tabs
-vim.keymap.set("n", "<leader>tt", "<cmd>:tabnew<CR>")
-vim.keymap.set("n", "<leader>tw", "<cmd>:tabc<CR>")
-vim.keymap.set("n", "<leader>tn", "<cmd>:tabn<CR>")
-vim.keymap.set("n", "<leader>tp", "<cmd>:tabp<CR>")
-vim.keymap.set("n", "<leader>tr", "<cmd>:tabr<CR>")
-vim.keymap.set("n", "<leader>tl", "<cmd>:tabl<CR>")
+vim.keymap.set("n", "<leader>tt", "<cmd>tabnew<CR>")
+vim.keymap.set("n", "<leader>tw", "<cmd>tabc<CR>")
+vim.keymap.set("n", "<leader>tn", "<cmd>tabn<CR>")
+vim.keymap.set("n", "<leader>tp", "<cmd>tabp<CR>")
+vim.keymap.set("n", "<leader>tr", "<cmd>tabr<CR>")
+vim.keymap.set("n", "<leader>tl", "<cmd>tabl<CR>")
