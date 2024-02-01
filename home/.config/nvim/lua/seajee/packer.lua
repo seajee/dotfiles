@@ -25,7 +25,7 @@ return require("packer").startup(function(use)
         "nvim-treesitter/nvim-treesitter", { run = ":TSUpdate" }
     }
 
-    use {
-        "kshenoy/vim-signature"
-    }
+    use "kshenoy/vim-signature"
+
+    use "startup-nvim/startup.nvim"
 end)
