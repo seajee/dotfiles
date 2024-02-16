@@ -30,4 +30,6 @@ return require("packer").startup(function(use)
     use "startup-nvim/startup.nvim"
 
     use "lewis6991/gitsigns.nvim"
+
+    use "tpope/vim-fugitive"
 end)
