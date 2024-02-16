@@ -6,5 +6,7 @@ normal.family = "Iosevka Fixed"
 bold.family = "Iosevka Fixed"
 italic.family = "Iosevka Fixed"
 bold_italic.family = "Iosevka Fixed"
-
 size = 14.0
+
+[mouse]
+hide_when_typing = true
