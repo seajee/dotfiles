@@ -28,4 +28,6 @@ return require("packer").startup(function(use)
     use "kshenoy/vim-signature"
 
     use "startup-nvim/startup.nvim"
+
+    use "lewis6991/gitsigns.nvim"
 end)
