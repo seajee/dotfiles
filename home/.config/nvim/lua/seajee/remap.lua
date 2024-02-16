@@ -55,3 +55,8 @@ vim.keymap.set("n", "<leader>tn", "<cmd>tabn<CR>")
 vim.keymap.set("n", "<leader>tp", "<cmd>tabp<CR>")
 vim.keymap.set("n", "<leader>tr", "<cmd>tabr<CR>")
 vim.keymap.set("n", "<leader>tl", "<cmd>tabl<CR>")
+
+-- Buffers
+vim.keymap.set("n", "<leader>bc", "<cmd>enew<CR>")
+vim.keymap.set("n", "<leader>bn", "<cmd>bn<CR>")
+vim.keymap.set("n", "<leader>bp", "<cmd>bp<CR>")
