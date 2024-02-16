@@ -17,3 +17,5 @@ PATH=~/.local/bin:$PATH
 
 PS1="$BLUEλ \W $ $RESET"
 
+eval "$(zoxide init --cmd cd bash)"
+
