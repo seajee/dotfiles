@@ -32,4 +32,6 @@ return require("packer").startup(function(use)
     use "lewis6991/gitsigns.nvim"
 
     use "tpope/vim-fugitive"
+
+    use "mg979/vim-visual-multi"
 end)
