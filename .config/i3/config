@@ -11,6 +11,9 @@ exec_always feh --bg-fill /home/seajee/Pictures/wallpaper.jpg
 # Set default layout to tabbed
 workspace_layout tabbed
 
+# Hide window borders when fullscreen
+hide_edge_borders smart
+
 # i3 config file (v4)
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
