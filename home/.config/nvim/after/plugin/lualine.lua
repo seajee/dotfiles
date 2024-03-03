@@ -1,6 +1,8 @@
 require("lualine").setup {
     options = {
-        theme = "gruvbox",
-        globalstatus = false
+        theme = "auto",
+        globalstatus = false,
+        component_separators = { left = "", right = "|" },
+        section_separators = { left = "|", right = "" }
     }
 }
