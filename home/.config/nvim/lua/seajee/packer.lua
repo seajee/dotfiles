@@ -34,4 +34,6 @@ return require("packer").startup(function(use)
     use "tpope/vim-fugitive"
 
     use "mg979/vim-visual-multi"
+
+    use "numToStr/Comment.nvim"
 end)
