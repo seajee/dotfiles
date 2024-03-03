@@ -39,6 +39,10 @@ vim.keymap.set("n", "<leader>vs", [[:vimgrep // **/*<Left><Left><Left><Left><Lef
 -- Delete all marks
 vim.keymap.set("n", "<leader>dm", "<cmd>delmarks!<CR>")
 
+-- Toggle listchars
+vim.keymap.set("n", "<leader>lc", "<cmd>set list<CR>")
+vim.keymap.set("n", "<leader>ln", "<cmd>set nolist<CR>")
+
 -- Make executable
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
