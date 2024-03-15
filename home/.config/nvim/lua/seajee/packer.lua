@@ -52,4 +52,6 @@ return require("packer").startup(function(use)
             {"L3MON4D3/LuaSnip"},
         }
     }
+
+    use "WhoIsSethDaniel/toggle-lsp-diagnostics.nvim"
 end)

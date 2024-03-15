@@ -1,7 +1,8 @@
+-- Setup LSP
 local lsp_zero = require("lsp-zero")
 
 lsp_zero.on_attach(function(client, bufnr)
-    -- lsp_zero.default_keymaps({ buffer = bufnr })
+    lsp_zero.default_keymaps({ buffer = bufnr })
     local opts = { buffer = bufnr, remap = false }
 
     vim.keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
@@ -31,13 +32,14 @@ require("mason-lspconfig").setup({
     },
 })
 
+-- Autocomplete
 local cmp = require('cmp')
-local cmp_action = require('lsp-zero').cmp_action()
+local cmp_action = lsp_zero.cmp_action()
 
 cmp.setup({
     completion = {
-        keyword_length = 0,  -- Min word length before showing result
-        autocomplete = false,  -- Don't auto popup
+        keyword_length = 0, -- Min word length before showing result
+        autocomplete = false, -- Don't auto popup
     },
     mapping = cmp.mapping.preset.insert({
         -- `Enter` key to confirm completion
@@ -55,3 +57,10 @@ cmp.setup({
         ["<C-d>"] = cmp.mapping.scroll_docs(4),
     })
 })
+
+-- Map <C-l> in insert mode to trigger native completion
+vim.api.nvim_set_keymap("i", "<C-l>", [[pumvisible() ? "\<C-n>" : "\<C-x>\<C-n>"]], { expr = true, noremap = true })
+
+-- Toggle LSP Diagnostics
+require("toggle_lsp_diagnostics").init()
+vim.api.nvim_set_keymap("n", "<leader>gt", ":ToggleDiag<CR>", { noremap = true, silent = true })
