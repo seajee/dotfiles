@@ -2,10 +2,10 @@
 startup_mode = "Maximized"
 
 [font]
-normal.family = "Ubuntu Mono"
-bold.family = "Ubuntu Mono"
-italic.family = "Ubuntu Mono"
-bold_italic.family = "Ubuntu Mono"
+normal.family = "ComicShannsMono Nerd Font"
+bold.family = "ComicShannsMono Nerd Font"
+italic.family = "ComicShannsMono Nerd Font"
+bold_italic.family = "ComicShannsMono Nerd Font"
 size = 17.0
 
 [mouse]
