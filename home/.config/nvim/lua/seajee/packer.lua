@@ -11,6 +11,7 @@ return require("packer").startup(function(use)
     use "mbbill/undotree"
 
     use "ellisonleao/gruvbox.nvim"
+    use "robertmeta/nofrils"
 
     use {
         "akinsho/toggleterm.nvim", tag = "*"

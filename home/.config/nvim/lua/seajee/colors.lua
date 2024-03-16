@@ -1,4 +1,4 @@
--- Configure gruvbox colorscheme
+-- Configure colorscheme
 require("gruvbox").setup({
     italic = {
         strings = false,
@@ -11,7 +11,7 @@ require("gruvbox").setup({
     palette_overrides = {},
 })
 
-vim.cmd.colorscheme("gruvbox")
+vim.cmd.colorscheme("nofrils-dark")
 
 -- Do not use vim background
 vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
