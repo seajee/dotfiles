@@ -18,7 +18,7 @@ vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
 vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 
 -- Highlight whitespaces and traling whitespace
-vim.cmd.set("list")
+--vim.cmd.set("list")
 vim.cmd.set("listchars+=space:·")
 vim.cmd.set("listchars+=trail:·")
 
