@@ -64,3 +64,4 @@ vim.api.nvim_set_keymap("i", "<C-l>", [[pumvisible() ? "\<C-n>" : "\<C-x>\<C-n>"
 -- Toggle LSP Diagnostics
 require("toggle_lsp_diagnostics").init()
 vim.api.nvim_set_keymap("n", "<leader>gt", ":ToggleDiag<CR>", { noremap = true, silent = true })
+vim.cmd(":ToggleDiagOff")
