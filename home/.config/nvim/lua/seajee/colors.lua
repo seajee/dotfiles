@@ -11,7 +11,7 @@ require("gruvbox").setup({
     palette_overrides = {},
 })
 
-vim.cmd.colorscheme("nofrils-dark")
+vim.cmd.colorscheme("gruber-darker")
 
 -- Do not use vim background
 vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
