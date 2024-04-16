@@ -1,11 +1,15 @@
 [window]
 startup_mode = "Maximized"
+opacity = 1
+
+[colors.primary]
+background = "#181818"
 
 [font]
-normal.family = "ComicShannsMono Nerd Font"
-bold.family = "ComicShannsMono Nerd Font"
-italic.family = "ComicShannsMono Nerd Font"
-bold_italic.family = "ComicShannsMono Nerd Font"
+normal.family = "Iosevka"
+bold.family = "Iosevka"
+italic.family = "Iosevka"
+bold_italic.family = "Iosevka"
 size = 17.0
 
 [mouse]
