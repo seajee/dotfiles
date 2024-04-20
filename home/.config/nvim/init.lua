@@ -76,6 +76,10 @@ vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 -- Netrw
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
+-- Move through quick fixes
+vim.keymap.set("n", "<C-j>", "<cmd>cnext<CR>")
+vim.keymap.set("n", "<C-k>", "<cmd>cprev<CR>")
+
 -- Move text in visual mode
 vim.keymap.set("v", "J", "<cmd>m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", "<cmd>m '<-2<CR>gv=gv")
