@@ -221,7 +221,6 @@ require("lazy").setup({
                 },
                 undercurl = true,
                 underline = true,
-
             })
             vim.cmd.colorscheme("gruber-darker")
         end
