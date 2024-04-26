@@ -9,6 +9,7 @@ alias ls='ls --color=auto'
 alias ll='ls -alhF'
 alias grep='grep --color=auto'
 alias vim='nvim'
+alias sl='sl -e'
 
 BLUE="\[\e[0;34m\]"
 RESET="\[\e[0m\]"
