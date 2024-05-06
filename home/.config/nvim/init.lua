@@ -239,4 +239,13 @@ require("lazy").setup({
 
     -- Place, toggle and display marks
     { "kshenoy/vim-signature" },
+
+    -- Greeter
+    {
+        "startup-nvim/startup.nvim",
+        dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
+        config = function()
+            require("startup").setup({ theme = "startify" })
+        end
+    },
  })
