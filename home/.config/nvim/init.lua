@@ -99,12 +99,6 @@ vim.keymap.set("n", "<leader>Y", "\"+Y")
 vim.keymap.set("n", "<leader>d", "\"_d")
 vim.keymap.set("v", "<leader>d", "\"_d")
 
--- Replace all
-vim.keymap.set("n", "<leader>s", [[<cmd>%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
-
--- Vim Grep
-vim.keymap.set("n", "<leader>vs", [[<cmd>vimgrep // **/*<Left><Left><Left><Left><Left><Left>]])
-
 -- Delete all marks
 vim.keymap.set("n", "<leader>dm", "<cmd>delmarks!<CR>")
 
@@ -115,8 +109,8 @@ vim.keymap.set("n", "<leader>ln", "<cmd>set nolist<CR>")
 -- Make executable
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
--- Change CWD
-vim.keymap.set("n", "<leader>cd", "<cmd>cd % | pwd<CR>", { silent = true })
+-- Change CWD for current tab
+vim.keymap.set("n", "<leader>cd", "<cmd>cd %:h | pwd<CR>", { silent = true })
 
 -- Tabs
 vim.keymap.set("n", "<leader>tt", "<cmd>tabnew<CR>")
