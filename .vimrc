@@ -131,6 +131,12 @@ nnoremap <leader>bp :bp<CR>
 " Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 tnoremap <Esc><Esc> <C-\><C-n>
 
-" Colorscheme
+" [[ Colorscheme ]]
 syntax on
 colorscheme GruberDarker
+
+" [[ GVim options ]]
+
+" Gui options
+set guioptions-=T
+set guifont=Iosevka\ 14
