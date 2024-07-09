@@ -256,6 +256,7 @@ require("lazy").setup({
             "neovim/nvim-lspconfig",
             "hrsh7th/cmp-nvim-lsp",
             "hrsh7th/nvim-cmp",
+            "hrsh7th/cmp-buffer",
             "L3MON4D3/LuaSnip",
         },
         branch = "v3.x",
@@ -273,19 +274,33 @@ require("lazy").setup({
                 vim.keymap.set("n", "gr", "<cmd>Telescope lsp_references<cr>", {buffer = bufnr})
                 vim.keymap.set("n", "<leader>td", toggle_diagnostics)
             end)
+            lsp_zero.set_server_config({
+                on_init = function(client)
+                    client.server_capabilities.semanticTokensProvider = nil
+                end,
+            })
 
             require("mason").setup({})
             require("mason-lspconfig").setup({
-                -- ensure_installed = {
-                --     "lua_ls",
-                --     "pylsp",
-                --     "clangd"
-                -- },
                 handlers = {
                     function(server_name)
                         require("lspconfig")[server_name].setup({})
                     end
                 }
+            })
+
+            local cmp = require("cmp")
+            local cmp_format = require("lsp-zero").cmp_format({ details = true })
+
+            cmp.setup({
+                completion = {
+                    autocomplete = false
+                },
+                sources = {
+                    { name = "nvim_lsp" },
+                    { name = "buffer" },
+                },
+                formatting = cmp_format,
             })
         end
     }
