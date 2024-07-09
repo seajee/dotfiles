@@ -156,6 +156,7 @@ require("lazy").setup({
     {
         "lewis6991/gitsigns.nvim",
         config = function()
+            require("gitsigns").setup()
             vim.keymap.set("n", "<leader>gp", "<cmd>Gitsigns preview_hunk<CR>")
             vim.keymap.set("n", "<leader>gb", "<cmd>Gitsigns toggle_current_line_blame<CR>")
         end
@@ -245,4 +246,47 @@ require("lazy").setup({
             require("startup").setup({ theme = "startify" })
         end
     },
- })
+
+    -- LSP
+    {
+        "VonHeikemen/lsp-zero.nvim",
+        dependencies = {
+            "williamboman/mason.nvim",
+            "williamboman/mason-lspconfig.nvim",
+            "neovim/nvim-lspconfig",
+            "hrsh7th/cmp-nvim-lsp",
+            "hrsh7th/nvim-cmp",
+            "L3MON4D3/LuaSnip",
+        },
+        branch = "v3.x",
+        config = function()
+            local lsp_zero = require("lsp-zero")
+            lsp_zero.on_attach(function(client, bufnr)
+                -- LSP keymaps
+                lsp_zero.default_keymaps({ buffer = bufnr })
+
+                local toggle_diagnostics = function()
+                    vim.diagnostic.enable(not vim.diagnostic.is_enabled())
+                end
+                vim.diagnostic.enable(false)
+
+                vim.keymap.set("n", "gr", "<cmd>Telescope lsp_references<cr>", {buffer = bufnr})
+                vim.keymap.set("n", "<leader>td", toggle_diagnostics)
+            end)
+
+            require("mason").setup({})
+            require("mason-lspconfig").setup({
+                -- ensure_installed = {
+                --     "lua_ls",
+                --     "pylsp",
+                --     "clangd"
+                -- },
+                handlers = {
+                    function(server_name)
+                        require("lspconfig")[server_name].setup({})
+                    end
+                }
+            })
+        end
+    }
+})
