@@ -6,7 +6,10 @@
 #
 
 # Display Wallpaper
-exec_always --no-startup-id feh --bg-fill /home/seajee/Pictures/wallpaper.jpg
+exec_always --no-startup-id feh --bg-fill /home/seajee/Pictures/wallpaper.png
+
+# Polkit
+exec --no-startup-id /usr/lib/polkit-kde-authentication-agent-1
 
 # Set default layout to tabbed
 workspace_layout tabbed
