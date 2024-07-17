@@ -247,6 +247,22 @@ require("lazy").setup({
         end
     },
 
+    -- Treesitter
+    {
+        "nvim-treesitter/nvim-treesitter",
+        build = ":TSUpdate",
+        config = function()
+            local configs = require("nvim-treesitter.configs")
+
+            configs.setup({
+                ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "elixir", "heex", "javascript", "html" },
+                sync_install = false,
+                highlight = { enable = true },
+                indent = { enable = true },
+            })
+        end
+    },
+
     -- LSP
     {
         "VonHeikemen/lsp-zero.nvim",
@@ -269,7 +285,7 @@ require("lazy").setup({
                 local toggle_diagnostics = function()
                     vim.diagnostic.enable(not vim.diagnostic.is_enabled())
                 end
-                vim.diagnostic.enable(false)
+                -- vim.diagnostic.enable(false)
 
                 vim.keymap.set("n", "gr", "<cmd>Telescope lsp_references<cr>", {buffer = bufnr})
                 vim.keymap.set("n", "<leader>td", toggle_diagnostics)
@@ -293,9 +309,9 @@ require("lazy").setup({
             local cmp_format = require("lsp-zero").cmp_format({ details = true })
 
             cmp.setup({
-                completion = {
-                    autocomplete = false
-                },
+                -- completion = {
+                --     autocomplete = false
+                -- },
                 sources = {
                     { name = "nvim_lsp" },
                     { name = "buffer" },
