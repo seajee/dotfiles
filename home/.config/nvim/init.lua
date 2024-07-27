@@ -87,6 +87,9 @@ vim.keymap.set("n", "<C-k>", "<cmd>cprev<CR>")
 vim.keymap.set("v", "J", "<cmd>m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", "<cmd>m '<-2<CR>gv=gv")
 
+-- Query replace selected text in visual mode
+vim.keymap.set("v", "<C-r>", "y:%s/<C-r>0//gc<left><left><left>")
+
 -- Center screen with vim motions
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
