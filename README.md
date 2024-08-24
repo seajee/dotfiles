@@ -1,3 +1,14 @@
 # dotfiles
 
 These are my personal configuration files that i generally use.
+
+## Quick start
+
+To quickly install all configuration files just run the provided script.
+
+```bash
+./install.sh
+```
+
+The script will copy the files in interactive mode to prevent accidental
+overwites.
