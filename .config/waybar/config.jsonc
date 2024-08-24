@@ -60,8 +60,8 @@
     "wireplumber": {
         "format": "{icon} {volume}%",
         "format-muted": "󰝟 ",
-        "on-click": "amixer sset Master toggle",
-        "format-icons": ["", "", "", "", ""]
+        "on-click": "qpwgraph",
+        "format-icons": [" ", " ", " ", " ", " "]
     },
     "battery": {
         "interval": 10,
