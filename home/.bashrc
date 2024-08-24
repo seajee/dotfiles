@@ -9,6 +9,7 @@ alias ls='ls --color=auto'
 alias ll='ls -alhF'
 alias grep='grep --color=auto'
 alias sl='sl -e'
+alias fetch='fastfetch'
 alias vim='nvim'
 alias vff='vim $(fzf --preview="bat {}")'
 

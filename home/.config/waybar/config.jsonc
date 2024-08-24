@@ -12,7 +12,7 @@
         "tray",
         "idle_inhibitor",
         "backlight",
-        "wireplumber",
+        "pulseaudio",
         "battery",
         "disk",
         "memory",
@@ -58,11 +58,11 @@
         "on-scroll-up": "brightnessctl set +4",
         "on-scroll-down": "brightnessctl set 4-"
     },
-    "wireplumber": {
+    "pulseaudio": {
         "format": "{icon} {volume}%",
+        "format-icons": [" ", " ", " ", " ", " "],
         "format-muted": "󰝟 ",
-        "on-click": "qpwgraph",
-        "format-icons": [" ", " ", " ", " ", " "]
+        "on-click": "qpwgraph"
     },
     "battery": {
         "interval": 10,
