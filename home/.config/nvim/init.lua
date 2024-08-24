@@ -24,7 +24,7 @@ vim.opt.smartindent = true
 vim.opt.mouse = "a"
 
 -- Don't show the mode, since it's already in the status line
-vim.opt.showmode = false
+vim.opt.showmode = true -- false
 
 -- Enable break indent
 vim.opt.breakindent = true
@@ -55,7 +55,7 @@ vim.opt.timeoutlen = 300
 
 -- Configure how new splits should be opened
 vim.opt.splitright = true
-vim.opt.splitbelow = true
+vim.opt.splitbelow = false
 
 -- Sets how neovim will display certain whitespace characters in the editor
 vim.opt.list = false
@@ -223,9 +223,24 @@ require("lazy").setup({
                 undercurl = true,
                 underline = true,
             })
-            vim.cmd.colorscheme("gruber-darker")
+            -- vim.cmd.colorscheme("gruber-darker")
         end
     },
+    {
+        "rebelot/kanagawa.nvim",
+        config = function()
+            vim.cmd.colorscheme("kanagawa")
+        end
+    },
+    {
+        "ellisonleao/gruvbox.nvim",
+        config = function()
+            -- vim.cmd.colorscheme("gruvbox")
+        end
+    },
+
+    -- Transparency
+    { "xiyaowong/transparent.nvim" },
 
     -- Multi cursor editing
     { "mg979/vim-visual-multi" },
@@ -260,7 +275,7 @@ require("lazy").setup({
             configs.setup({
                 ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "elixir", "heex", "javascript", "html" },
                 sync_install = false,
-                highlight = { enable = true },
+                highlight = { enable = false },
                 indent = { enable = true },
             })
         end
@@ -290,7 +305,7 @@ require("lazy").setup({
                 end
                 -- vim.diagnostic.enable(false)
 
-                vim.keymap.set("n", "gr", "<cmd>Telescope lsp_references<cr>", {buffer = bufnr})
+                vim.keymap.set("n", "gr", "<cmd>Telescope lsp_references<cr>", { buffer = bufnr })
                 vim.keymap.set("n", "<leader>td", toggle_diagnostics)
             end)
             lsp_zero.set_server_config({
