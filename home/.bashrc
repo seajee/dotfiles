@@ -8,8 +8,9 @@
 alias ls='ls --color=auto'
 alias ll='ls -alhF'
 alias grep='grep --color=auto'
-alias vim='nvim'
 alias sl='sl -e'
+alias vim='nvim'
+alias vff='vim $(fzf --preview="bat {}")'
 
 BLUE="\[\e[0;34m\]"
 RESET="\[\e[0m\]"
@@ -17,4 +18,3 @@ RESET="\[\e[0m\]"
 PS1="$BLUEλ \W $ $RESET"
 
 eval "$(zoxide init --cmd cd bash)"
-
