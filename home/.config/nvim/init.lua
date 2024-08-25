@@ -196,8 +196,8 @@ require("lazy").setup({
                 options = {
                     theme = "auto",
                     globalstatus = false,
-                    component_separators = { left = "", right = "|" },
-                    section_separators = { left = "|", right = "" }
+                    component_separators = { left = "", right = "" },
+                    section_separators = { left = "", right = "" }
                 }
             })
         end
@@ -205,9 +205,12 @@ require("lazy").setup({
 
     -- Colorscheme
     {
-        "blazkowolf/gruber-darker.nvim",
+        -- "blazkowolf/gruber-darker.nvim",
+        -- "ellisonleao/gruvbox.nvim",
+        "rebelot/kanagawa.nvim",
         config = function()
-            require("gruber-darker").setup({
+            local theme = "kanagawa"
+            require(theme).setup({
                 bold = false,
                 invert = {
                     signs = false,
@@ -223,19 +226,7 @@ require("lazy").setup({
                 undercurl = true,
                 underline = true,
             })
-            -- vim.cmd.colorscheme("gruber-darker")
-        end
-    },
-    {
-        "rebelot/kanagawa.nvim",
-        config = function()
-            vim.cmd.colorscheme("kanagawa")
-        end
-    },
-    {
-        "ellisonleao/gruvbox.nvim",
-        config = function()
-            -- vim.cmd.colorscheme("gruvbox")
+            vim.cmd.colorscheme(theme)
         end
     },
 
