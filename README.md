@@ -4,7 +4,8 @@ These are my personal configuration files that i generally use.
 
 ## Quick start
 
-To quickly install all configuration files just run the provided script.
+To quickly install all configuration files in the home directory just run the
+provided script.
 
 ```bash
 ./install.sh
