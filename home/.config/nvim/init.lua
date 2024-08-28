@@ -205,11 +205,12 @@ require("lazy").setup({
 
     -- Colorscheme
     {
-        -- "blazkowolf/gruber-darker.nvim",
+        "blazkowolf/gruber-darker.nvim",
         -- "ellisonleao/gruvbox.nvim",
-        "rebelot/kanagawa.nvim",
+        -- "rebelot/kanagawa.nvim",
+        -- "vague2k/vague.nvim",
         config = function()
-            local theme = "kanagawa"
+            local theme = "gruber-darker"
             require(theme).setup({
                 bold = false,
                 invert = {
@@ -318,9 +319,9 @@ require("lazy").setup({
             local cmp_format = require("lsp-zero").cmp_format({ details = true })
 
             cmp.setup({
-                -- completion = {
-                --     autocomplete = false
-                -- },
+                completion = {
+                    autocomplete = false
+                },
                 sources = {
                     { name = "nvim_lsp" },
                     { name = "buffer" },
