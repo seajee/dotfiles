@@ -130,6 +130,7 @@ vim.keymap.set("n", "<leader>tl", "<cmd>tabl<CR>")
 vim.keymap.set("n", "<leader>bc", "<cmd>enew<CR>")
 vim.keymap.set("n", "<leader>bn", "<cmd>bn<CR>")
 vim.keymap.set("n", "<leader>bp", "<cmd>bp<CR>")
+vim.keymap.set("n", "<leader>\\", "<cmd>b term<CR>")
 
 -- Diagnostic keymaps
 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous [D]iagnostic message" })
