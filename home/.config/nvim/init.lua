@@ -249,6 +249,9 @@ require("lazy").setup({
     -- Place, toggle and display marks
     { "kshenoy/vim-signature" },
 
+    -- Center text in the middle of the screen
+    { "smithbm2316/centerpad.nvim" },
+
     -- Treesitter
     {
         "nvim-treesitter/nvim-treesitter",
