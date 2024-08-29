@@ -8,7 +8,7 @@ To quickly install all configuration files in the home directory just run the
 provided script.
 
 ```bash
-./install.sh
+./deploy.sh
 ```
 
 The script will copy the files in interactive mode to prevent accidental
