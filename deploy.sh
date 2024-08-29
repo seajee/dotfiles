@@ -15,7 +15,6 @@ do
 
     if [ -f "$target_path" ]; then
         if ! cmp -s "$source_path" "$target_path"; then
-            # file=$(basename "$filepath")
             read -p "overwrite ${target_path}? [y/N] " input
             if [[ "$input" == [Yy]* ]]; then
                 cp "$source_path" "$target_path"
