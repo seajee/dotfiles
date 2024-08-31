@@ -8,7 +8,7 @@ To quickly install all configuration files in the home directory just run the
 provided script.
 
 ```bash
-./deploy.sh
+./dotman.py deploy
 ```
 
 The script will copy the files in interactive mode to prevent accidental
