@@ -206,12 +206,12 @@ require("lazy").setup({
 
     -- Colorscheme
     {
-        "blazkowolf/gruber-darker.nvim",
-        -- "ellisonleao/gruvbox.nvim",
+        -- "blazkowolf/gruber-darker.nvim",
+        "ellisonleao/gruvbox.nvim",
         -- "rebelot/kanagawa.nvim",
         -- "vague2k/vague.nvim",
         config = function()
-            local theme = "gruber-darker"
+            local theme = "gruvbox"
             require(theme).setup({
                 bold = false,
                 invert = {
