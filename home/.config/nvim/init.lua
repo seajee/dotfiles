@@ -207,11 +207,11 @@ require("lazy").setup({
     -- Colorscheme
     {
         -- "blazkowolf/gruber-darker.nvim",
-        "ellisonleao/gruvbox.nvim",
-        -- "rebelot/kanagawa.nvim",
+        -- "ellisonleao/gruvbox.nvim",
+        "rebelot/kanagawa.nvim",
         -- "vague2k/vague.nvim",
         config = function()
-            local theme = "gruvbox"
+            local theme = "kanagawa"
             require(theme).setup({
                 bold = false,
                 invert = {
@@ -260,7 +260,6 @@ require("lazy").setup({
             local configs = require("nvim-treesitter.configs")
 
             configs.setup({
-                ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "elixir", "heex", "javascript", "html" },
                 sync_install = false,
                 highlight = { enable = true },
                 indent = { enable = true },
