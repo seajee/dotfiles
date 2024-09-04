@@ -12,6 +12,7 @@ alias sl='sl -e'
 alias fetch='fastfetch'
 alias vim='nvim'
 alias vff='vim $(fzf --preview="bat {}")'
+alias plasma='/usr/lib/plasma-dbus-run-session-if-needed /usr/bin/startplasma-wayland'
 
 BLUE="\[\e[0;34m\]"
 RESET="\[\e[0m\]"
