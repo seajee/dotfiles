@@ -208,26 +208,11 @@ require("lazy").setup({
     {
         -- "blazkowolf/gruber-darker.nvim",
         -- "ellisonleao/gruvbox.nvim",
-        "rebelot/kanagawa.nvim",
+        -- "rebelot/kanagawa.nvim",
         -- "vague2k/vague.nvim",
+        "savq/melange-nvim",
         config = function()
-            local theme = "kanagawa"
-            require(theme).setup({
-                bold = false,
-                invert = {
-                    signs = false,
-                    tabline = false,
-                    visual = false,
-                },
-                italic = {
-                    strings = false,
-                    comments = false,
-                    operators = false,
-                    folds = false,
-                },
-                undercurl = true,
-                underline = true,
-            })
+            local theme = "melange"
             vim.cmd.colorscheme(theme)
         end
     },
