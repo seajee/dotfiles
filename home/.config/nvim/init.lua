@@ -210,9 +210,10 @@ require("lazy").setup({
         -- "ellisonleao/gruvbox.nvim",
         -- "rebelot/kanagawa.nvim",
         -- "vague2k/vague.nvim",
-        "savq/melange-nvim",
+        -- "savq/melange-nvim",
+        "bartekjaszczak/gruv-vsassist.nvim",
         config = function()
-            local theme = "melange"
+            local theme = "gruv-vsassist"
             vim.cmd.colorscheme(theme)
         end
     },
@@ -253,6 +254,7 @@ require("lazy").setup({
     },
 
     -- LSP
+    --[[
     {
         "VonHeikemen/lsp-zero.nvim",
         dependencies = {
@@ -309,4 +311,5 @@ require("lazy").setup({
             })
         end
     }
+    ]]
 })
