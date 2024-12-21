@@ -5,7 +5,7 @@ vim.g.maplocalleader = " "
 -- [[ Setting options ]]
 
 -- Fat cursor
-vim.opt.guicursor = ""
+-- vim.opt.guicursor = ""
 
 -- Make relative line numbers default
 vim.opt.number = true
@@ -31,7 +31,7 @@ vim.opt.breakindent = true
 
 -- Save undo history
 vim.opt.undofile = true
-vim.opt.undodir = os.getenv("HOME") .. "/.cache/nvim_undodir"
+vim.opt.undodir = os.getenv("HOME") .. "/.vim/nvim_undodir"
 vim.opt.swapfile = false
 vim.opt.backup = false
 
@@ -206,15 +206,31 @@ require("lazy").setup({
 
     -- Colorscheme
     {
-        -- "blazkowolf/gruber-darker.nvim",
-        -- "ellisonleao/gruvbox.nvim",
-        -- "rebelot/kanagawa.nvim",
-        -- "vague2k/vague.nvim",
-        -- "savq/melange-nvim",
-        "bartekjaszczak/gruv-vsassist.nvim",
+        "Yagua/nebulous.nvim",
         config = function()
-            local theme = "gruv-vsassist"
-            vim.cmd.colorscheme(theme)
+            require("nebulous").setup({
+                variant = "fullmoon",
+                disable = {
+                    background = true,
+                    endOfBuffer = false,
+                    terminal_colors = true,
+                },
+                italic = {
+                    comments   = true,
+                    keywords   = true,
+                    functions  = false,
+                    variables  = false,
+                },
+                custom_colors = { -- this table can hold any group of colors with their respective values
+                    LineNr = { fg = "#5BBBDA", bg = "NONE", style = "NONE" },
+                    CursorLineNr = { fg = "#E1CD6C", bg = "NONE", style = "NONE" },
+
+                    -- it is possible to specify only the element to be changed
+                    TelescopePreviewBorder = { fg = "#A13413" },
+                    LspDiagnosticsDefaultError = { bg = "#E11313" },
+                    TSTagDelimiter = { style = "bold,italic" },
+                }
+            })
         end
     },
 
@@ -254,7 +270,6 @@ require("lazy").setup({
     },
 
     -- LSP
-    --[[
     {
         "VonHeikemen/lsp-zero.nvim",
         dependencies = {
@@ -311,5 +326,4 @@ require("lazy").setup({
             })
         end
     }
-    ]]
 })
