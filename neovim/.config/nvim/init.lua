@@ -216,10 +216,10 @@ require("lazy").setup({
                     terminal_colors = true,
                 },
                 italic = {
-                    comments   = true,
-                    keywords   = true,
-                    functions  = false,
-                    variables  = false,
+                    comments = false,
+                    keywords = true,
+                    functions = true,
+                    variables = false,
                 },
                 custom_colors = { -- this table can hold any group of colors with their respective values
                     LineNr = { fg = "#5BBBDA", bg = "NONE", style = "NONE" },
