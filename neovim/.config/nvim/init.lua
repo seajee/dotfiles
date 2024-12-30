@@ -291,7 +291,7 @@ require("lazy").setup({
                 local toggle_diagnostics = function()
                     vim.diagnostic.enable(not vim.diagnostic.is_enabled())
                 end
-                -- vim.diagnostic.enable(false)
+                vim.diagnostic.enable(false)
 
                 vim.keymap.set("n", "gr", "<cmd>Telescope lsp_references<cr>", { buffer = bufnr })
                 vim.keymap.set("n", "<leader>td", toggle_diagnostics)
