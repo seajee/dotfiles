@@ -25,7 +25,7 @@ BLUE="\[\e[0;34m\]"
 RED="\[\e[0;91m\]"
 RESET="\[\e[0m\]"
 
-PS1="\u@$RED\h$RESET \w \$$RESET "
+PS1="[\u@$RED\h$RESET \w]\$$RESET "
 
 # Setup zoxide
 eval "$(zoxide init --cmd cd bash)"
