@@ -61,6 +61,9 @@ vim.opt.splitbelow = false
 vim.opt.list = false
 vim.opt.listchars = { tab = "» ", space = "·", trail = "·", nbsp = "␣" }
 
+-- Diable automatic new line at end of file
+vim.opt.fixendofline = false
+
 -- Preview substitutions live, as you type!
 vim.opt.inccommand = "nosplit"
 
