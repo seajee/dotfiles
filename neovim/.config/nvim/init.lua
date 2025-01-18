@@ -218,7 +218,7 @@ require("lazy").setup({
                 italic = {
                     comments = false,
                     keywords = true,
-                    functions = true,
+                    functions = false,
                     variables = false,
                 },
                 custom_colors = { -- this table can hold any group of colors with their respective values
