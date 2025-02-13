@@ -183,6 +183,23 @@ require("lazy").setup({
         end
     },
 
+    -- File manager
+    {
+        "X3eRo0/dired.nvim",
+        dependencies = { "MunifTanjim/nui.nvim" },
+        config = function()
+            require("dired").setup({
+                path_separator = "/",
+                show_banner = false,
+                show_icons = false,
+                show_hidden = true,
+                show_dot_dirs = true,
+                show_colors = true,
+            })
+            vim.keymap.set("n", "<leader>pd", vim.cmd.Dired)
+        end
+    },
+
     -- Advanced Undo tree
     {
         "mbbill/undotree",
