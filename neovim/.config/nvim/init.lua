@@ -7,6 +7,9 @@ vim.g.maplocalleader = " "
 -- Fat cursor
 -- vim.opt.guicursor = ""
 
+-- Colorscheme
+vim.cmd.colorscheme("murphy")
+
 -- Make relative line numbers default
 vim.opt.number = true
 vim.opt.relativenumber = true
@@ -221,14 +224,6 @@ require("lazy").setup({
                     section_separators = { left = "", right = "" }
                 }
             })
-        end
-    },
-
-    -- Colorscheme
-    {
-        "ellisonleao/gruvbox.nvim",
-        config = function()
-            vim.cmd.colorscheme("gruvbox")
         end
     },
 
