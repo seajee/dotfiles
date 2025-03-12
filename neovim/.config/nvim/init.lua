@@ -187,6 +187,7 @@ require("lazy").setup({
     },
 
     -- File manager
+    --[[
     {
         "X3eRo0/dired.nvim",
         dependencies = { "MunifTanjim/nui.nvim" },
@@ -202,6 +203,7 @@ require("lazy").setup({
             vim.keymap.set("n", "<leader>pd", vim.cmd.Dired)
         end
     },
+    ]]--
 
     -- Advanced Undo tree
     {
@@ -263,6 +265,7 @@ require("lazy").setup({
     },
 
     -- LSP
+    --[[
     {
         "VonHeikemen/lsp-zero.nvim",
         dependencies = {
@@ -319,4 +322,5 @@ require("lazy").setup({
             })
         end
     }
+    ]]--
 })
