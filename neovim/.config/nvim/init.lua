@@ -314,6 +314,8 @@ require("lazy").setup({
                     vim.diagnostic.enable(not vim.diagnostic.is_enabled())
                 end
                 vim.diagnostic.enable(false)
+                -- vim.diagnostic.config({ virtual_lines = true })
+                vim.diagnostic.config({ virtual_text = true })
 
                 vim.keymap.set("n", "gr", "<cmd>Telescope lsp_references<cr>", { buffer = bufnr })
                 vim.keymap.set("n", "<leader>td", toggle_diagnostics)
@@ -326,6 +328,7 @@ require("lazy").setup({
 
             require("mason").setup({})
             require("mason-lspconfig").setup({
+                ensure_installed = {"lua_ls", "clangd"},
                 handlers = {
                     function(server_name)
                         require("lspconfig")[server_name].setup({})
