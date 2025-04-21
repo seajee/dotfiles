@@ -14,7 +14,7 @@ size = 14.0
 hide_when_typing = true
 
 [colors.primary]
-background = "#0E1415"
+background = "#181818"
 foreground = "#CECECE"
 
 [colors.cursor]
