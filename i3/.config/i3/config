@@ -1,7 +1,7 @@
 set $mod Mod4
 
 # Display Wallpaper
-exec_always --no-startup-id feh --bg-fill /home/seajee/Pictures/wallpaper.png
+exec --no-startup-id feh --bg-fill $HOME/Pictures/wallpaper.png
 
 # Polkit
 exec --no-startup-id /usr/lib/polkit-kde-authentication-agent-1
