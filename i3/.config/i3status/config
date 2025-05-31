@@ -1,9 +1,10 @@
 general {
     colors = true
-    interval = 1
+    interval = 5
     separator = "|"
 }
 
+order += "ipv6"
 order += "wireless _first_"
 order += "ethernet _first_"
 order += "disk /"
@@ -12,14 +13,14 @@ order += "cpu_temperature 0"
 order += "cpu_usage"
 order += "time"
 
-ethernet _first_ {
-    format_up = "E: %ip (%speed)"
-    format_down = "E: down"
-}
-
 wireless _first_ {
     format_up = "W: (%quality at %essid) %ip"
     format_down = "W: down"
+}
+
+ethernet _first_ {
+    format_up = "E: %ip (%speed)"
+    format_down = "E: down"
 }
 
 disk "/" {
@@ -27,8 +28,7 @@ disk "/" {
 }
 
 memory {
-    memory_used_method = classical
-    format="R: %used/%total"
+    format="RAM: %used/%total"
 }
 
 cpu_temperature 0 {
@@ -42,5 +42,5 @@ cpu_usage {
 }
 
 time {
-    format = "%d-%m-%Y %H:%M:%S"
+    format = "%Y-%m-%d %H:%M:%S"
 }
