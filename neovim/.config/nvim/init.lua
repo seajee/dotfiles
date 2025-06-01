@@ -57,10 +57,6 @@ vim.opt.timeoutlen = 300
 vim.opt.splitright = true
 vim.opt.splitbelow = false
 
--- Sets how neovim will display certain whitespace characters in the editor
-vim.opt.list = false
-vim.opt.listchars = { tab = "» ", space = "·", trail = "·", nbsp = "␣" }
-
 -- Diable automatic new line at end of file
 vim.opt.fixendofline = false
 
@@ -110,10 +106,6 @@ vim.keymap.set("v", "<leader>d", "\"_d")
 
 -- Delete all marks
 vim.keymap.set("n", "<leader>dm", "<cmd>delmarks!<CR>")
-
--- Toggle listchars
-vim.keymap.set("n", "<leader>lc", "<cmd>set list<CR>")
-vim.keymap.set("n", "<leader>ln", "<cmd>set nolist<CR>")
 
 -- Make executable
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
@@ -237,6 +229,31 @@ require("lazy").setup({
 
     -- Transparency
     { "xiyaowong/transparent.nvim" },
+
+    -- Listchars
+    {
+        "0xfraso/nvim-listchars",
+        event = "BufEnter",
+        config = function()
+            require("nvim-listchars").setup({
+                save_state = true,
+                listchars = {
+                    trail = "-",
+                    -- eol = "↲",
+                    tab = "» ",
+                    space = "·",
+                },
+                notifications = true,
+                lighten_step = 10,
+            })
+
+            -- Decrease initial listchars brightness
+            vim.cmd("ListcharsDarkenColors")
+            vim.cmd("ListcharsDarkenColors")
+
+            vim.keymap.set("n", "<leader>lc", "<cmd>ListcharsToggle<CR>")
+        end
+    },
 
     -- Multi cursor editing
     { "mg979/vim-visual-multi" },
