@@ -37,7 +37,7 @@
         }
     },
     "hyprland/window": {
-        "icon": true,
+        // "icon": true,
         "icon-size": 22,
         "max-length": 35,
         "separate-outputs": true
@@ -55,8 +55,8 @@
     "backlight": {
         "interval": 2,
         "format": "󰖨 {percent}%",
-        "on-scroll-up": "brightnessctl set +4",
-        "on-scroll-down": "brightnessctl set 4-"
+        "on-scroll-up": "brightnessctl set +5%",
+        "on-scroll-down": "brightnessctl set 5%-"
     },
     "pulseaudio": {
         "format": "{icon} {volume}%",
