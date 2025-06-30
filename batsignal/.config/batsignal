@@ -1,0 +1,16 @@
+-w
+20
+-c
+10
+-d
+5
+
+-W
+"Battery warning: Level is 20%"
+-C
+"Battery critical: Level is 10%"
+# -D
+# "systemctl hibernate"
+
+-F
+"Battery full: Level is 100%"
