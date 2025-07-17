@@ -220,10 +220,10 @@ require("lazy").setup({
 
     -- Colorscheme
     {
-        "savq/melange-nvim",
+        "davidosomething/vim-colors-meh",
         config = function()
             vim.opt.termguicolors = true
-            vim.cmd.colorscheme("melange")
+            vim.cmd.colorscheme("meh")
         end
     },
 
@@ -248,7 +248,6 @@ require("lazy").setup({
             })
 
             -- Decrease initial listchars brightness
-            vim.cmd("ListcharsDarkenColors")
             vim.cmd("ListcharsDarkenColors")
 
             vim.keymap.set("n", "<leader>lc", "<cmd>ListcharsToggle<CR>")
@@ -281,7 +280,7 @@ require("lazy").setup({
 
             configs.setup({
                 sync_install = false,
-                highlight = { enable = true },
+                highlight = { enable = false },
                 indent = { enable = false },
             })
         end
