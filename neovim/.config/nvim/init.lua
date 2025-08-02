@@ -1,349 +1,151 @@
--- Set <space> as the leader key
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
+-- [[ OPTIONS ]] --
 
--- [[ Setting options ]]
-
--- Fat cursor
--- vim.opt.guicursor = ""
-
--- Make relative line numbers default
+-- Line numbers
 vim.opt.number = true
 vim.opt.relativenumber = true
 
--- Use 4 spaces as tab
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.expandtab = true
-
--- Smart indentantion
-vim.opt.smartindent = true
-
--- Enable mouse mode
-vim.opt.mouse = "a"
-
--- Don't show the mode, since it's already in the status line
-vim.opt.showmode = true -- false
-
--- Enable break indent
-vim.opt.breakindent = true
-
--- Save undo history
+-- File options
 vim.opt.undofile = true
 vim.opt.undodir = os.getenv("HOME") .. "/.vim/nvim_undodir"
 vim.opt.swapfile = false
 vim.opt.backup = false
-
--- Case-insensitive searching UNLESS \C or one or more capital letters in the search term
-vim.opt.ignorecase = true
-vim.opt.smartcase = true
-
--- Incremental search
-vim.opt.incsearch = true
-
--- Keep signcolumn on by default
-vim.opt.signcolumn = "yes"
-vim.opt.colorcolumn = "79" -- RFC 5322
-
--- Decrease update time
-vim.opt.updatetime = 250
-
--- Decrease mapped sequence wait time
--- Displays which-key popup sooner
-vim.opt.timeoutlen = 300
-
--- Configure how new splits should be opened
-vim.opt.splitright = true
-vim.opt.splitbelow = false
-
--- Diable automatic new line at end of file
 vim.opt.fixendofline = false
 
--- Preview substitutions live, as you type!
-vim.opt.inccommand = "nosplit"
+-- Tabs
+vim.opt.tabstop = 4
+vim.opt.softtabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.expandtab = true
+vim.opt.breakindent = true
 
--- Show which line your cursor is on
-vim.opt.cursorline = false
-
--- Minimal number of screen lines to keep above and below the cursor.
-vim.opt.scrolloff = 0
-
--- [[ Keymaps ]]
-
--- Set highlight on search, but clear on pressing <Esc> in normal mode
-vim.opt.hlsearch = true
+-- Search
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+vim.opt.incsearch = true
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
--- Netrw
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+-- Columns
+vim.opt.signcolumn = "yes"
+vim.opt.textwidth = 78 -- RFC 5322
+vim.opt.colorcolumn = "79"
 
--- Move through quick fixes
-vim.keymap.set("n", "<C-j>", "<cmd>cnext<CR>")
-vim.keymap.set("n", "<C-k>", "<cmd>cprev<CR>")
+-- Colorscheme
+vim.cmd.colorscheme("unokai")
 
--- Move text in visual mode
-vim.keymap.set("v", "J", "<cmd>m '>+1<CR>gv=gv")
-vim.keymap.set("v", "K", "<cmd>m '<-2<CR>gv=gv")
+-- [[ KEYMAPS ]] --
 
--- Query replace selected text in visual mode
-vim.keymap.set("v", "<C-r>", "y:%s/<C-r>0//gc<left><left><left>")
+-- Leader key
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
--- Center screen with vim motions
--- vim.keymap.set("n", "<C-d>", "<C-d>zz")
--- vim.keymap.set("n", "<C-u>", "<C-u>zz")
-vim.keymap.set("n", "n", "nzzzv")
-vim.keymap.set("n", "N", "Nzzzv")
-
--- System clipboard
+-- Clipboard
 vim.keymap.set("n", "<leader>y", "\"+y")
 vim.keymap.set("v", "<leader>y", "\"+y")
-vim.keymap.set("n", "<leader>Y", "\"+Y")
 
--- Delete without copying
+-- Deletions
 vim.keymap.set("n", "<leader>d", "\"_d")
 vim.keymap.set("v", "<leader>d", "\"_d")
+vim.keymap.set("n", "<leader>dm", ":delmarks!<CR>")
 
--- Delete all marks
-vim.keymap.set("n", "<leader>dm", "<cmd>delmarks!<CR>")
+-- Commands
+vim.keymap.set("n", "<leader>x", ":!chmod +x %<CR>")
+vim.keymap.set("n", "<leader>cd", ":cd %:h | pwd<CR>")
 
--- Make executable
-vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
-
--- Change CWD for current tab
-vim.keymap.set("n", "<leader>cd", "<cmd>cd %:h | pwd<CR>", { silent = true })
+-- Move through quick fixes
+vim.keymap.set("n", "<C-j>", ":cnext<CR>")
+vim.keymap.set("n", "<C-k>", ":cprev<CR>")
 
 -- Tabs
-vim.keymap.set("n", "<leader>tt", "<cmd>tabnew<CR>")
-vim.keymap.set("n", "<leader>tw", "<cmd>tabc<CR>")
-vim.keymap.set("n", "<leader>tn", "<cmd>tabn<CR>")
-vim.keymap.set("n", "<leader>tp", "<cmd>tabp<CR>")
-vim.keymap.set("n", "<leader>tr", "<cmd>tabr<CR>")
-vim.keymap.set("n", "<leader>tl", "<cmd>tabl<CR>")
+vim.keymap.set("n", "<leader>tt", ":tabnew<CR>")
+vim.keymap.set("n", "<leader>tw", ":tabclose<CR>")
+vim.keymap.set("n", "<leader>tn", ":tabnext<CR>")
+vim.keymap.set("n", "<leader>tp", ":tabprevious<CR>")
+vim.keymap.set("n", "<leader>tf", ":tabfirst<CR>")
+vim.keymap.set("n", "<leader>tl", ":tablast<CR>")
 
 -- Buffers
-vim.keymap.set("n", "<leader>bc", "<cmd>enew<CR>")
-vim.keymap.set("n", "<leader>bn", "<cmd>bn<CR>")
-vim.keymap.set("n", "<leader>bp", "<cmd>bp<CR>")
-vim.keymap.set("n", "<leader>\\", "<cmd>b term<CR>")
+vim.keymap.set("n", "<leader>bc", ":enew<CR>")
+vim.keymap.set("n", "<leader>n", ":bnext<CR>")
+vim.keymap.set("n", "<leader>p", ":bprevious<CR>")
+vim.keymap.set("n", "<leader>\\", ":buffer term<CR>")
+vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>")
 
--- Diagnostic keymaps
-vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous [D]iagnostic message" })
-vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next [D]iagnostic message" })
-vim.keymap.set("n", "L", vim.diagnostic.open_float, { desc = "Show diagnostic [E]rror messages" })
-vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
+-- Windows
+vim.opt.winborder = "rounded"
 
--- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
-vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
+-- Listchars
+local listchars = {
+    eol = "$",
+    tab = "» ",
+    space = "·",
+    trail = "-"
+}
+vim.opt.listchars = listchars
+vim.api.nvim_set_hl(0, "NonText", { fg = "#303030" })
+vim.api.nvim_set_hl(0, "Whitespace", { fg = "#303030" })
+vim.cmd.match([[TrailingWhitespace /\s\+$/]])
 
--- [[ Install `lazy.nvim` plugin manager ]]
+-- Toggle listchars
+vim.keymap.set("n", "<leader>lc", function()
+    vim.wo.list = not vim.wo.list
+    if vim.wo.list then
+        vim.api.nvim_set_hl(0, "TrailingWhitespace", { link = "Error" })
+    else
+        vim.api.nvim_set_hl(0, "TrailingWhitespace", { link = "Whitespace" })
+    end
+end)
+vim.api.nvim_create_autocmd("InsertEnter", {
+    callback = function()
+        vim.opt.listchars.trail = nil
+        vim.api.nvim_set_hl(0, "TrailingWhitespace", { link = "Whitespace" })
+    end
+})
+vim.api.nvim_create_autocmd("InsertLeave", {
+    callback = function()
+        vim.opt.listchars.trail = listchars.space
+        vim.api.nvim_set_hl(0, "TrailingWhitespace", { link = "Error" })
+    end
+})
 
-local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
+-- [[ PLUGINS ]] --
+
+-- Bootstrap lazy.nvim
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
     local lazyrepo = "https://github.com/folke/lazy.nvim.git"
-    vim.fn.system { "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath }
+    local out = vim.fn.system({
+        "git", "clone", "--filter=blob:none", "--branch=stable",
+        lazyrepo, lazypath
+    })
+    if vim.v.shell_error ~= 0 then
+        vim.api.nvim_echo({
+            { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
+            { out, "WarningMsg" },
+            { "\nPress any key to exit..." },
+        }, true, {})
+        vim.fn.getchar()
+        os.exit(1)
+    end
 end
 vim.opt.rtp:prepend(lazypath)
 
--- [[ Configure and install plugins ]]
-
+-- Plugins
 require("lazy").setup({
-    -- "gc" to comment visual regions/lines
-    { "numToStr/Comment.nvim", opts = {} },
+    -- Fuzzy finder
+    { "echasnovski/mini.pick", opts = {} },
 
-    -- Adds git related signs to the gutter, as well as utilities for managing changes
-    {
-        "lewis6991/gitsigns.nvim",
-        config = function()
-            require("gitsigns").setup()
-            vim.keymap.set("n", "<leader>gp", "<cmd>Gitsigns preview_hunk<CR>")
-            vim.keymap.set("n", "<leader>gb", "<cmd>Gitsigns toggle_current_line_blame<CR>")
-        end
-    },
-
-    -- Fuzzy Finder (files, lsp, etc)
-    {
-        "nvim-telescope/telescope.nvim",
-        branch = "0.1.x",
-        dependencies = { "nvim-lua/plenary.nvim" },
-        config = function()
-            local builtin = require('telescope.builtin')
-            vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
-            vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
-            vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
-            vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
-        end
-    },
-
-    -- File manager
-    --[[
-    {
-        "X3eRo0/dired.nvim",
-        dependencies = { "MunifTanjim/nui.nvim" },
-        config = function()
-            require("dired").setup({
-                path_separator = "/",
-                show_banner = false,
-                show_icons = false,
-                show_hidden = true,
-                show_dot_dirs = true,
-                show_colors = true,
-            })
-            vim.keymap.set("n", "<leader>pd", vim.cmd.Dired)
-        end
-    },
-    ]]--
-
-    -- Advanced Undo tree
-    {
-        "mbbill/undotree",
-        config = function()
-            vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
-        end
-    },
-
-    -- Custom Neovim status line
-    {
-        "nvim-lualine/lualine.nvim",
-        dependencies = { "nvim-tree/nvim-web-devicons" },
-        config = function()
-            require("lualine").setup({
-                options = {
-                    theme = "auto",
-                    globalstatus = false,
-                    component_separators = { left = "", right = "" },
-                    section_separators = { left = "", right = "" }
-                }
-            })
-        end
-    },
-
-    -- Colorscheme
-    {
-        "davidosomething/vim-colors-meh",
-        config = function()
-            vim.opt.termguicolors = true
-            vim.cmd.colorscheme("meh")
-        end
-    },
-
-    -- Transparency
-    { "xiyaowong/transparent.nvim" },
-
-    -- Listchars
-    {
-        "0xfraso/nvim-listchars",
-        event = "BufEnter",
-        config = function()
-            require("nvim-listchars").setup({
-                save_state = true,
-                listchars = {
-                    trail = "-",
-                    -- eol = "↲",
-                    tab = "» ",
-                    space = "·",
-                },
-                notifications = true,
-                lighten_step = 10,
-            })
-
-            -- Decrease initial listchars brightness
-            vim.cmd("ListcharsDarkenColors")
-
-            vim.keymap.set("n", "<leader>lc", "<cmd>ListcharsToggle<CR>")
-        end
-    },
-
-    -- Multi cursor editing
-    { "mg979/vim-visual-multi" },
+    -- Advanced undo tree
+    { "mbbill/undotree" },
 
     -- Git integration
-    {
-        "tpope/vim-fugitive",
-        config = function()
-            vim.keymap.set("n", "<leader>gs", "<cmd>G<CR>")
-        end
-    },
-
-    -- Place, toggle and display marks
-    { "kshenoy/vim-signature" },
-
-    -- Center text in the middle of the screen
-    { "smithbm2316/centerpad.nvim" },
-
-    -- Treesitter
-    {
-        "nvim-treesitter/nvim-treesitter",
-        build = ":TSUpdate",
-        config = function()
-            local configs = require("nvim-treesitter.configs")
-
-            configs.setup({
-                sync_install = false,
-                highlight = { enable = false },
-                indent = { enable = false },
-            })
-        end
-    },
-
-    -- LSP
-    -- {
-    --     "VonHeikemen/lsp-zero.nvim",
-    --     dependencies = {
-    --         "williamboman/mason.nvim",
-    --         "williamboman/mason-lspconfig.nvim",
-    --         "neovim/nvim-lspconfig",
-    --         "hrsh7th/cmp-nvim-lsp",
-    --         "hrsh7th/nvim-cmp",
-    --         "hrsh7th/cmp-buffer",
-    --         "L3MON4D3/LuaSnip",
-    --     },
-    --     branch = "v3.x",
-    --     config = function()
-    --         local lsp_zero = require("lsp-zero")
-    --         lsp_zero.on_attach(function(client, bufnr)
-    --             -- LSP keymaps
-    --             lsp_zero.default_keymaps({ buffer = bufnr })
-    --
-    --             local toggle_diagnostics = function()
-    --                 vim.diagnostic.enable(not vim.diagnostic.is_enabled())
-    --             end
-    --             vim.diagnostic.enable(false)
-    --             -- vim.diagnostic.config({ virtual_lines = true })
-    --             vim.diagnostic.config({ virtual_text = true })
-    --
-    --             vim.keymap.set("n", "gr", "<cmd>Telescope lsp_references<cr>", { buffer = bufnr })
-    --             vim.keymap.set("n", "<leader>td", toggle_diagnostics)
-    --         end)
-    --         lsp_zero.set_server_config({
-    --             on_init = function(client)
-    --                 client.server_capabilities.semanticTokensProvider = nil
-    --             end,
-    --         })
-    --
-    --         require("mason").setup({})
-    --         require("mason-lspconfig").setup({
-    --             ensure_installed = {"lua_ls", "clangd"},
-    --             handlers = {
-    --                 function(server_name)
-    --                     require("lspconfig")[server_name].setup({})
-    --                 end
-    --             }
-    --         })
-    --
-    --         local cmp = require("cmp")
-    --         local cmp_format = require("lsp-zero").cmp_format({ details = true })
-    --
-    --         cmp.setup({
-    --             completion = {
-    --                 autocomplete = false
-    --             },
-    --             sources = {
-    --                 { name = "nvim_lsp" },
-    --                 { name = "buffer" },
-    --             },
-    --             formatting = cmp_format,
-    --         })
-    --     end
-    -- }
+    { "tpope/vim-fugitive" },
+    { "lewis6991/gitsigns.nvim", opts = {} }
 })
+
+-- Plugin keymaps
+vim.keymap.set("n", "<leader>f", ":Pick files<CR>")
+vim.keymap.set("n", "<leader>u", ":UndotreeToggle<CR>")
+vim.keymap.set("n", "<leader>gs", ":Git<CR>")
+vim.keymap.set("n", "<leader>gt", ":Gitsigns toggle_signs<CR>")
+vim.keymap.set("n", "<leader>gp", ":Gitsigns preview_hunk<CR>")
+vim.keymap.set("n", "<leader>gb", ":Gitsigns toggle_current_line_blame<CR>")
