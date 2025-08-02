@@ -96,13 +96,13 @@ vim.keymap.set("n", "<leader>lc", function()
         vim.api.nvim_set_hl(0, "TrailingWhitespace", { link = "Whitespace" })
     end
 end)
-vim.api.nvim_create_autocmd("InsertEnter", {
+vim.api.nvim_create_autocmd({ "InsertEnter", "TermEnter" }, {
     callback = function()
         vim.opt.listchars.trail = nil
         vim.api.nvim_set_hl(0, "TrailingWhitespace", { link = "Whitespace" })
     end
 })
-vim.api.nvim_create_autocmd("InsertLeave", {
+vim.api.nvim_create_autocmd({ "InsertLeave", "TermLeave" }, {
     callback = function()
         vim.opt.listchars.trail = listchars.space
         vim.api.nvim_set_hl(0, "TrailingWhitespace", { link = "Error" })
