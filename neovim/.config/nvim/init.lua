@@ -39,8 +39,7 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 -- Clipboard
-vim.keymap.set("n", "<leader>y", "\"+y")
-vim.keymap.set("v", "<leader>y", "\"+y")
+vim.keymap.set({ "n", "v" }, "<leader>y", "\"+y")
 
 -- Deletions
 vim.keymap.set("n", "<leader>d", "\"_d")
