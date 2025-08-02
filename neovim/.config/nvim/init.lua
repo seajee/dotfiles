@@ -29,6 +29,9 @@ vim.opt.signcolumn = "yes"
 vim.opt.textwidth = 78 -- RFC 5322
 vim.opt.colorcolumn = "79"
 
+-- Auto complete
+vim.opt.completeopt = { "menuone", "popup" --[[, "noselect" ]] }
+
 -- Colorscheme
 vim.cmd.colorscheme("unokai")
 
