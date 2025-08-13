@@ -1,6 +1,6 @@
 -- Abbreviations
 local opt = vim.opt
-local set = vim.keymap.set
+local map = vim.keymap.set
 local cmd = vim.cmd
 
 -- [[ OPTIONS ]] --
@@ -30,7 +30,7 @@ opt.breakindent = true
 opt.ignorecase = true
 opt.smartcase = true
 opt.incsearch = true
-set("n", "<Esc>", "<cmd>nohlsearch<CR>")
+map("n", "<ESC>", "<cmd>nohlsearch<CR>")
 
 -- Columns
 opt.signcolumn = "yes"
@@ -50,43 +50,52 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 -- Clipboard
-set({ "n", "v" }, "<leader>y", "\"+y")
+map({ "n", "v" }, "<leader>y", "\"+y")
 
 -- Deletions
-set({ "n", "v" }, "<leader>d", "\"_d")
-set("n", "<leader>dm", ":delmarks!<CR>")
+map({ "n", "v" }, "<leader>d", "\"_d")
+map("n", "<leader>dm", ":delmarks!<CR>")
 
 -- Commands
-set("n", "<leader>x", ":!chmod +x %<CR>")
-set("n", "<leader>cd", ":cd %:h | pwd<CR>")
+map("n", "<leader>x", ":!chmod +x %<CR>")
+map("n", "<leader>cd", ":cd %:h | pwd<CR>")
 
 -- Move through quick fixes
-set("n", "<C-j>", ":cnext<CR>")
-set("n", "<C-k>", ":cprev<CR>")
+map("n", "<C-j>", ":cnext<CR>")
+map("n", "<C-k>", ":cprev<CR>")
 
 -- Tabs
-set("n", "<leader>tt", ":tabnew<CR>")
-set("n", "<leader>tw", ":tabclose<CR>")
-set("n", "<leader>tn", ":tabnext<CR>")
-set("n", "<leader>tp", ":tabprevious<CR>")
-set("n", "<leader>tf", ":tabfirst<CR>")
-set("n", "<leader>tl", ":tablast<CR>")
+map("n", "<leader>tt", ":tabnew<CR>")
+map("n", "<leader>tw", ":tabclose<CR>")
+map("n", "<leader>tn", ":tabnext<CR>")
+map("n", "<leader>tp", ":tabprevious<CR>")
+map("n", "<leader>tf", ":tabfirst<CR>")
+map("n", "<leader>tl", ":tablast<CR>")
 
 -- Buffers
-set("n", "<leader>bc", ":enew<CR>")
-set("n", "<leader>n", ":bnext<CR>")
-set("n", "<leader>p", ":bprevious<CR>")
-set("n", "<leader>\\", ":buffer term<CR>")
-set("t", "<Esc>", "<C-\\><C-n>")
+map("n", "<leader>bc", ":enew<CR>")
+map("n", "<leader>bd", ":bdelete<CR>")
+map("n", "<TAB>", ":bnext<CR>")
+map("n", "<S-TAB>", ":bprevious<CR>")
+map("n", "<leader>\\", ":buffer term<CR>")
+map("t", "<ESC>", "<C-\\><C-n>")
+
+-- Indentation in visual mode
+map("v", "<", "<gv")
+map("v", ">", ">gv")
+
+-- Move text in visual mode
+map("v", "J", ":move '>+1<CR>gv=gv")
+map("v", "K", ":move '<-2<CR>gv=gv")
 
 -- Run last command in terminal
-set("n", "<leader>r", ":buffer term<CR>i<Up><CR><C-\\><C-n>")
+map("n", "<leader>r", ":buffer term<CR>i<Up><CR><C-\\><C-n>")
 
 -- Window resizing
-set("n", "<C-Up>", "<cmd>resize -2<CR>")
-set("n", "<C-Down>", "<cmd>resize +2<CR>")
-set("n", "<C-Left>", "<cmd>vertical resize -2<CR>")
-set("n", "<C-Right>", "<cmd>resize +2<CR>")
+map("n", "<C-Up>", "<cmd>resize -2<CR>")
+map("n", "<C-Down>", "<cmd>resize +2<CR>")
+map("n", "<C-Left>", "<cmd>vertical resize -2<CR>")
+map("n", "<C-Right>", "<cmd>resize +2<CR>")
 
 -- Listchars
 local listchars = {
@@ -101,7 +110,7 @@ vim.api.nvim_set_hl(0, "Whitespace", { fg = "#303030" })
 cmd.match([[TrailingWhitespace /\s\+$/]])
 
 -- Toggle listchars
-set("n", "<leader>lc", function()
+map("n", "<leader>lc", function()
     vim.wo.list = not vim.wo.list
     if vim.wo.list then
         vim.api.nvim_set_hl(0, "TrailingWhitespace", { link = "Error" })
@@ -169,12 +178,12 @@ require("lazy").setup({
 })
 
 -- Plugin keymaps
-set("n", "<leader>f", ":Pick files<CR>")
-set("n", "<leader>u", ":UndotreeToggle<CR>")
-set("n", "<leader>gs", ":Git<CR>")
-set("n", "<leader>gt", ":Gitsigns toggle_signs<CR>")
-set("n", "<leader>gp", ":Gitsigns preview_hunk<CR>")
-set("n", "<leader>gb", ":Gitsigns toggle_current_line_blame<CR>")
+map("n", "<leader>f", ":Pick files<CR>")
+map("n", "<leader>u", ":UndotreeToggle<CR>")
+map("n", "<leader>gs", ":Git<CR>")
+map("n", "<leader>gt", ":Gitsigns toggle_signs<CR>")
+map("n", "<leader>gp", ":Gitsigns preview_hunk<CR>")
+map("n", "<leader>gb", ":Gitsigns toggle_current_line_blame<CR>")
 
 -- Colorscheme
 cmd.colorscheme("gruber-darker")
