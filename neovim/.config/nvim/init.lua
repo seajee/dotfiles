@@ -40,6 +40,9 @@ opt.colorcolumn = "79"
 -- Auto complete
 opt.completeopt = { "menuone", "popup" --[[, "noselect" ]] }
 
+-- Window border
+opt.winborder = "rounded"
+
 -- [[ KEYMAPS ]] --
 
 -- Leader key
@@ -79,8 +82,11 @@ set("t", "<Esc>", "<C-\\><C-n>")
 -- Run last command in terminal
 set("n", "<leader>r", ":buffer term<CR>i<Up><CR><C-\\><C-n>")
 
--- Windows
-opt.winborder = "rounded"
+-- Window resizing
+set("n", "<C-Up>", "<cmd>resize -2<CR>")
+set("n", "<C-Down>", "<cmd>resize +2<CR>")
+set("n", "<C-Left>", "<cmd>vertical resize -2<CR>")
+set("n", "<C-Right>", "<cmd>resize +2<CR>")
 
 -- Listchars
 local listchars = {
