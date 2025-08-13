@@ -61,8 +61,8 @@ map("n", "<leader>x", ":!chmod +x %<CR>")
 map("n", "<leader>cd", ":cd %:h | pwd<CR>")
 
 -- Move through quick fixes
-map("n", "<C-j>", ":cnext<CR>")
-map("n", "<C-k>", ":cprev<CR>")
+map("n", "<M-j>", ":cnext<CR>")
+map("n", "<M-k>", ":cprev<CR>")
 
 -- Tabs
 map("n", "<leader>tt", ":tabnew<CR>")
@@ -92,10 +92,10 @@ map("v", "K", ":move '<-2<CR>gv=gv")
 map("n", "<leader>r", ":buffer term<CR>i<Up><CR><C-\\><C-n>")
 
 -- Window resizing
-map("n", "<C-Up>", "<cmd>resize -2<CR>")
-map("n", "<C-Down>", "<cmd>resize +2<CR>")
-map("n", "<C-Left>", "<cmd>vertical resize -2<CR>")
-map("n", "<C-Right>", "<cmd>resize +2<CR>")
+map("n", "<M-Up>", "<cmd>resize -2<CR>")
+map("n", "<M-Down>", "<cmd>resize +2<CR>")
+map("n", "<M-Left>", "<cmd>vertical resize -2<CR>")
+map("n", "<M-Right>", "<cmd>resize +2<CR>")
 
 -- Listchars
 local listchars = {
