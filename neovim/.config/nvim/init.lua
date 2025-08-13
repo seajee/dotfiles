@@ -4,6 +4,9 @@
 vim.opt.number = true
 vim.opt.relativenumber = true
 
+-- Block cursor
+vim.opt.guicursor = ""
+
 -- File options
 vim.opt.undofile = true
 vim.opt.undodir = os.getenv("HOME") .. "/.vim/nvim_undodir"
@@ -31,9 +34,6 @@ vim.opt.colorcolumn = "79"
 
 -- Auto complete
 vim.opt.completeopt = { "menuone", "popup" --[[, "noselect" ]] }
-
--- Colorscheme
-vim.cmd.colorscheme("unokai")
 
 -- [[ KEYMAPS ]] --
 
@@ -70,14 +70,17 @@ vim.keymap.set("n", "<leader>bc", ":enew<CR>")
 vim.keymap.set("n", "<leader>n", ":bnext<CR>")
 vim.keymap.set("n", "<leader>p", ":bprevious<CR>")
 vim.keymap.set("n", "<leader>\\", ":buffer term<CR>")
-vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>")
+vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
+
+-- Run last command in terminal
+vim.keymap.set("n", "<leader>r", ":buffer term<CR>i<Up><CR><C-\\><C-n>")
 
 -- Windows
 vim.opt.winborder = "rounded"
 
 -- Listchars
 local listchars = {
-    eol = "$",
+    -- eol = "$",
     tab = "» ",
     space = "·",
     trail = "-"
@@ -133,6 +136,17 @@ vim.opt.rtp:prepend(lazypath)
 
 -- Plugins
 require("lazy").setup({
+    -- Colorscheme
+    {
+        "blazkowolf/gruber-darker.nvim",
+        opts = {
+            italic = {
+                strings = false,
+                comments = false,
+            }
+        }
+    },
+
     -- Fuzzy finder
     { "echasnovski/mini.pick", opts = {} },
 
@@ -151,3 +165,6 @@ vim.keymap.set("n", "<leader>gs", ":Git<CR>")
 vim.keymap.set("n", "<leader>gt", ":Gitsigns toggle_signs<CR>")
 vim.keymap.set("n", "<leader>gp", ":Gitsigns preview_hunk<CR>")
 vim.keymap.set("n", "<leader>gb", ":Gitsigns toggle_current_line_blame<CR>")
+
+-- Colorscheme
+vim.cmd.colorscheme("gruber-darker")
