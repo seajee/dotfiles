@@ -17,6 +17,7 @@ alias plasma='/usr/lib/plasma-dbus-run-session-if-needed /usr/bin/startplasma-wa
 alias yt-mp3='yt-dlp --output "%(artist)s - %(title)s.%(ext)s" --extract-audio --embed-metadata --embed-thumbnail --audio-format mp3 --audio-quality 0'
 alias yt-mp4='yt-dlp --format "bv*[ext=mp4]+ba[ext=m4a]/b[ext=mp4]"'
 alias lg='looking-glass-client -s'
+alias grub-update='sudo grub-mkconfig -o /boot/grub/grub.cfg'
 
 # Environment variables
 export PATH="$PATH:$HOME/.local/bin"
