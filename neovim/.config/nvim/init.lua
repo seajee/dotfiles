@@ -1,39 +1,44 @@
+-- Abbreviations
+local opt = vim.opt
+local set = vim.keymap.set
+local cmd = vim.cmd
+
 -- [[ OPTIONS ]] --
 
 -- Line numbers
-vim.opt.number = true
-vim.opt.relativenumber = true
+opt.number = true
+opt.relativenumber = true
 
 -- Block cursor
-vim.opt.guicursor = ""
+opt.guicursor = ""
 
 -- File options
-vim.opt.undofile = true
-vim.opt.undodir = os.getenv("HOME") .. "/.vim/nvim_undodir"
-vim.opt.swapfile = false
-vim.opt.backup = false
-vim.opt.fixendofline = false
+opt.undofile = true
+opt.undodir = os.getenv("HOME") .. "/.vim/nvim_undodir"
+opt.swapfile = false
+opt.backup = false
+opt.fixendofline = false
 
 -- Tabs
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.expandtab = true
-vim.opt.breakindent = true
+opt.tabstop = 4
+opt.softtabstop = 4
+opt.shiftwidth = 4
+opt.expandtab = true
+opt.breakindent = true
 
 -- Search
-vim.opt.ignorecase = true
-vim.opt.smartcase = true
-vim.opt.incsearch = true
-vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
+opt.ignorecase = true
+opt.smartcase = true
+opt.incsearch = true
+set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
 -- Columns
-vim.opt.signcolumn = "yes"
-vim.opt.textwidth = 78 -- RFC 5322
-vim.opt.colorcolumn = "79"
+opt.signcolumn = "yes"
+opt.textwidth = 78 -- RFC 5322
+opt.colorcolumn = "79"
 
 -- Auto complete
-vim.opt.completeopt = { "menuone", "popup" --[[, "noselect" ]] }
+opt.completeopt = { "menuone", "popup" --[[, "noselect" ]] }
 
 -- [[ KEYMAPS ]] --
 
@@ -42,41 +47,40 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 -- Clipboard
-vim.keymap.set({ "n", "v" }, "<leader>y", "\"+y")
+set({ "n", "v" }, "<leader>y", "\"+y")
 
 -- Deletions
-vim.keymap.set("n", "<leader>d", "\"_d")
-vim.keymap.set("v", "<leader>d", "\"_d")
-vim.keymap.set("n", "<leader>dm", ":delmarks!<CR>")
+set({ "n", "v" }, "<leader>d", "\"_d")
+set("n", "<leader>dm", ":delmarks!<CR>")
 
 -- Commands
-vim.keymap.set("n", "<leader>x", ":!chmod +x %<CR>")
-vim.keymap.set("n", "<leader>cd", ":cd %:h | pwd<CR>")
+set("n", "<leader>x", ":!chmod +x %<CR>")
+set("n", "<leader>cd", ":cd %:h | pwd<CR>")
 
 -- Move through quick fixes
-vim.keymap.set("n", "<C-j>", ":cnext<CR>")
-vim.keymap.set("n", "<C-k>", ":cprev<CR>")
+set("n", "<C-j>", ":cnext<CR>")
+set("n", "<C-k>", ":cprev<CR>")
 
 -- Tabs
-vim.keymap.set("n", "<leader>tt", ":tabnew<CR>")
-vim.keymap.set("n", "<leader>tw", ":tabclose<CR>")
-vim.keymap.set("n", "<leader>tn", ":tabnext<CR>")
-vim.keymap.set("n", "<leader>tp", ":tabprevious<CR>")
-vim.keymap.set("n", "<leader>tf", ":tabfirst<CR>")
-vim.keymap.set("n", "<leader>tl", ":tablast<CR>")
+set("n", "<leader>tt", ":tabnew<CR>")
+set("n", "<leader>tw", ":tabclose<CR>")
+set("n", "<leader>tn", ":tabnext<CR>")
+set("n", "<leader>tp", ":tabprevious<CR>")
+set("n", "<leader>tf", ":tabfirst<CR>")
+set("n", "<leader>tl", ":tablast<CR>")
 
 -- Buffers
-vim.keymap.set("n", "<leader>bc", ":enew<CR>")
-vim.keymap.set("n", "<leader>n", ":bnext<CR>")
-vim.keymap.set("n", "<leader>p", ":bprevious<CR>")
-vim.keymap.set("n", "<leader>\\", ":buffer term<CR>")
-vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
+set("n", "<leader>bc", ":enew<CR>")
+set("n", "<leader>n", ":bnext<CR>")
+set("n", "<leader>p", ":bprevious<CR>")
+set("n", "<leader>\\", ":buffer term<CR>")
+set("t", "<Esc>", "<C-\\><C-n>")
 
 -- Run last command in terminal
-vim.keymap.set("n", "<leader>r", ":buffer term<CR>i<Up><CR><C-\\><C-n>")
+set("n", "<leader>r", ":buffer term<CR>i<Up><CR><C-\\><C-n>")
 
 -- Windows
-vim.opt.winborder = "rounded"
+opt.winborder = "rounded"
 
 -- Listchars
 local listchars = {
@@ -85,13 +89,13 @@ local listchars = {
     space = "·",
     trail = "-"
 }
-vim.opt.listchars = listchars
+opt.listchars = listchars
 vim.api.nvim_set_hl(0, "NonText", { fg = "#303030" })
 vim.api.nvim_set_hl(0, "Whitespace", { fg = "#303030" })
-vim.cmd.match([[TrailingWhitespace /\s\+$/]])
+cmd.match([[TrailingWhitespace /\s\+$/]])
 
 -- Toggle listchars
-vim.keymap.set("n", "<leader>lc", function()
+set("n", "<leader>lc", function()
     vim.wo.list = not vim.wo.list
     if vim.wo.list then
         vim.api.nvim_set_hl(0, "TrailingWhitespace", { link = "Error" })
@@ -101,13 +105,13 @@ vim.keymap.set("n", "<leader>lc", function()
 end)
 vim.api.nvim_create_autocmd({ "InsertEnter", "TermEnter" }, {
     callback = function()
-        vim.opt.listchars.trail = nil
+        opt.listchars.trail = nil
         vim.api.nvim_set_hl(0, "TrailingWhitespace", { link = "Whitespace" })
     end
 })
 vim.api.nvim_create_autocmd({ "InsertLeave", "TermLeave" }, {
     callback = function()
-        vim.opt.listchars.trail = listchars.space
+        opt.listchars.trail = listchars.space
         vim.api.nvim_set_hl(0, "TrailingWhitespace", { link = "Error" })
     end
 })
@@ -132,7 +136,7 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
         os.exit(1)
     end
 end
-vim.opt.rtp:prepend(lazypath)
+opt.rtp:prepend(lazypath)
 
 -- Plugins
 require("lazy").setup({
@@ -159,12 +163,12 @@ require("lazy").setup({
 })
 
 -- Plugin keymaps
-vim.keymap.set("n", "<leader>f", ":Pick files<CR>")
-vim.keymap.set("n", "<leader>u", ":UndotreeToggle<CR>")
-vim.keymap.set("n", "<leader>gs", ":Git<CR>")
-vim.keymap.set("n", "<leader>gt", ":Gitsigns toggle_signs<CR>")
-vim.keymap.set("n", "<leader>gp", ":Gitsigns preview_hunk<CR>")
-vim.keymap.set("n", "<leader>gb", ":Gitsigns toggle_current_line_blame<CR>")
+set("n", "<leader>f", ":Pick files<CR>")
+set("n", "<leader>u", ":UndotreeToggle<CR>")
+set("n", "<leader>gs", ":Git<CR>")
+set("n", "<leader>gt", ":Gitsigns toggle_signs<CR>")
+set("n", "<leader>gp", ":Gitsigns preview_hunk<CR>")
+set("n", "<leader>gb", ":Gitsigns toggle_current_line_blame<CR>")
 
 -- Colorscheme
-vim.cmd.colorscheme("gruber-darker")
+cmd.colorscheme("gruber-darker")
