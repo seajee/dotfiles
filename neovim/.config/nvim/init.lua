@@ -69,8 +69,8 @@ map("n", "<leader>tf", ":tabfirst<CR>")
 map("n", "<leader>tl", ":tablast<CR>")
 
 -- Buffers
-map("n", "<leader>bc", ":enew<CR>")
-map("n", "<leader>bd", ":bdelete<CR>")
+map("n", "<leader>n", ":enew<CR>")
+map("n", "<leader>db", ":bdelete<CR>")
 map("n", "<TAB>", ":bnext<CR>")
 map("n", "<S-TAB>", ":bprevious<CR>")
 map("n", "<leader>\\", ":buffer term<CR>")
@@ -185,6 +185,7 @@ require("lazy").setup({
 
 -- Plugin keymaps
 map("n", "<leader>f", ":Pick files<CR>")
+map("n", "<leader>b", ":Pick buffers<CR>")
 map("n", "<leader>u", ":UndotreeToggle<CR>")
 map("n", "<leader>gs", ":Git<CR>")
 map("n", "<leader>gt", ":Gitsigns toggle_signs<CR>")
