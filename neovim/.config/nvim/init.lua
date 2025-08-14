@@ -60,10 +60,6 @@ map("n", "<leader>dm", ":delmarks!<CR>")
 map("n", "<leader>x", ":!chmod +x %<CR>")
 map("n", "<leader>cd", ":cd %:h | pwd<CR>")
 
--- Move through quick fixes
-map("n", "<M-j>", ":cnext<CR>")
-map("n", "<M-k>", ":cprev<CR>")
-
 -- Tabs
 map("n", "<leader>tt", ":tabnew<CR>")
 map("n", "<leader>tw", ":tabclose<CR>")
@@ -90,6 +86,16 @@ map("v", "K", ":move '<-2<CR>gv=gv")
 
 -- Run last command in terminal
 map("n", "<leader>r", ":buffer term<CR>i<Up><CR><C-\\><C-n>")
+
+-- Window movement
+map("n", "<M-h>", "<C-w>h")
+map("n", "<M-j>", "<C-w>j")
+map("n", "<M-k>", "<C-w>k")
+map("n", "<M-l>", "<C-w>l")
+map("t", "<M-h>", "<cmd>wincmd h<CR>")
+map("t", "<M-j>", "<cmd>wincmd j<CR>")
+map("t", "<M-k>", "<cmd>wincmd k<CR>")
+map("t", "<M-l>", "<cmd>wincmd l<CR>")
 
 -- Window resizing
 map("n", "<M-Up>", "<cmd>resize -2<CR>")
