@@ -101,7 +101,7 @@ map("t", "<M-l>", "<cmd>wincmd l<CR>")
 map("n", "<M-Up>", "<cmd>resize -2<CR>")
 map("n", "<M-Down>", "<cmd>resize +2<CR>")
 map("n", "<M-Left>", "<cmd>vertical resize -2<CR>")
-map("n", "<M-Right>", "<cmd>resize +2<CR>")
+map("n", "<M-Right>", "<cmd>vertical resize +2<CR>")
 
 -- Listchars
 local listchars = {
