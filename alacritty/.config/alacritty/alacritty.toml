@@ -1,7 +1,7 @@
 [window]
 startup_mode = "Maximized"
 opacity = 1
-dynamic_padding = true
+dynamic_padding = false
 
 [font]
 normal.family = "Iosevka"
