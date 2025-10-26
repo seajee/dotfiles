@@ -180,7 +180,10 @@ require("lazy").setup({
 
     -- Git integration
     { "tpope/vim-fugitive" },
-    { "lewis6991/gitsigns.nvim", opts = {} }
+    { "lewis6991/gitsigns.nvim", opts = {} },
+
+    -- Text aligning
+    { "Vonr/align.nvim", branch = "v2" }
 })
 
 -- Plugin keymaps
@@ -191,6 +194,9 @@ map("n", "<leader>gs", ":Git<CR>")
 map("n", "<leader>gt", ":Gitsigns toggle_signs<CR>")
 map("n", "<leader>gp", ":Gitsigns preview_hunk<CR>")
 map("n", "<leader>gb", ":Gitsigns toggle_current_line_blame<CR>")
+map("x", "<leader>a", function()
+    require("align").align_to_string({ preview = true, regex = true })
+end)
 
 -- Colorscheme
 cmd.colorscheme("gruber-darker")
