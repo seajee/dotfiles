@@ -25,9 +25,17 @@ export PATH="$PATH:$HOME/.local/bin"
 # Theme
 BLUE="\[\e[0;34m\]"
 RED="\[\e[0;91m\]"
+YELLOW="\e[0;33m"
 RESET="\[\e[0m\]"
 
-PS1="[\u@$RED\h$RESET \w]\$$RESET "
+__git_branch() {
+    local branch="$(git branch --show-current 2>/dev/null)"
+    if [[ -n "$branch" ]]; then
+        echo " $YELLOW$branch$RESET"
+    fi
+}
+
+PROMPT_COMMAND='PS1="[\u@$RED\h$RESET \w$(__git_branch)]\$$RESET "'
 
 # Setup zoxide
 eval "$(zoxide init --cmd cd bash)"
